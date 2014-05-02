@@ -1,0 +1,16 @@
+﻿extends layout
+block content
+  h1= title
+  
+  if error
+    p 
+      | Error occured: 
+      = error
+  if categories
+    ul
+      each category, index in categories
+        h2= category.name
+        each note in category.notes
+          p= note.note
+          p= note.author
+          p= note.color
