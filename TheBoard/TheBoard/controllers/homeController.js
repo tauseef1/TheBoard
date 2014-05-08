@@ -8,7 +8,7 @@
             //res.send( "<html><body><h1>Express</h1></body></html>" );
 
             data.getNoteCategories( function ( err, results ) {
-                res.render( "jade/index", { title: "Express + Jade", error: err, categories: results });
+                res.render( "jade/index", { title: "The Board", error: err, categories: results });
             });
 
         });

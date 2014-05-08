@@ -214,3 +214,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /TheBoard/TheBoard/node_modules
+/TheBoard/MongoDB/data
+/TheBoard/TheBoard/public/lib
