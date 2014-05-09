@@ -1,0 +1,24 @@
+﻿extends layout
+block scripts
+  script(src="../js/notesView.js")
+block content
+  div(class="container", ng-app="notesView")
+    div(class="page-header")
+      h1= title
+    a(href="/", class="btn btn-info", style="margin-bottom:15px") Back
+    ul(class="media-list")
+      each note in notes
+        li(class="media")
+          a(class="pull-left", href="#")
+            case note.color
+              when "yellow"
+                img(class="media-object", src="../images/note-yellow.png", width="64", height="64")
+              when "blue"
+                img(class="media-object", src="../images/note-blue.png", width="64", height="64")
+              when "red"
+                img(class="media-object", src="../images/note-red.png", width="64", height="64")
+              default
+                img(class="media-object", src="../images/note-yellow.png", width="64", height="64")
+          div(class="media-body")
+            h4(class="media-heading")= note.author
+            = note.note

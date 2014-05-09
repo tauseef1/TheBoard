@@ -1,0 +1,27 @@
+﻿extends layout
+block content
+  .container
+    h1= title
+    if error
+      p 
+        | Error occured: 
+        = error
+    .row
+      .col-md-4
+        form(role="form", action="/newCategory", method="post")
+          .form-group
+            if newCatError
+              p.text-warning= newCatError
+            label(for="categoryName") Category Name
+            input(type="text", name="categoryName", class="form-control", id="categoryName", placeholder="Enter Category Name")
+          .form-group
+            button(type="submit", class="btn btn-default") Submit
+    if categories
+      .row
+        .col-md-4
+          .list-group
+            each category, index in categories
+              -var categoryLink = "/notes/" + category.name
+                a(href=categoryLink, class="list-group-item")
+                  span.badge= category.notes.length                
+                  = category.name
